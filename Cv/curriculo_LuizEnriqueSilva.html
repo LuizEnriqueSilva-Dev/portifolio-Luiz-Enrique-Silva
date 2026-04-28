@@ -1,0 +1,324 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --navy:#0f1b2d;--navy-mid:#1a2d45;
+    --gold:#b8952e;--gold-lt:#d4ad4a;--gold-pale:#faf3e0;
+    --cream:#faf8f4;--border:#e0dbd2;--border-dk:#c5bfb4;
+    --tx:#1e2a3a;--txm:#5a6474;--txl:#9aa2b0;
+  }
+  .wrap{font-family:'DM Sans',system-ui,sans-serif;color:var(--tx);background:var(--cream);border:0.5px solid var(--border-dk);border-radius:4px;overflow:hidden;max-width:900px;margin:0 auto}
+  a{color:inherit;text-decoration:none}
+  a:hover{text-decoration:underline}
+  ul{list-style:none}
+
+  /* HEADER */
+  .hdr{background:var(--navy);color:#fff;display:grid;grid-template-columns:1fr auto;gap:36px;padding:44px 48px 40px;position:relative;overflow:hidden}
+  .hdr::before{content:'';position:absolute;top:-50px;right:-50px;width:180px;height:180px;border-radius:50%;border:1px solid rgba(184,149,46,.2)}
+  .hdr::after{content:'';position:absolute;bottom:-70px;right:50px;width:130px;height:130px;border-radius:50%;border:1px solid rgba(184,149,46,.1)}
+  .hdr-eyebrow{font-size:.62rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+  .hdr-name{font-family:'DM Serif Display',Georgia,serif;font-size:2.8rem;line-height:1.05;color:#fff;letter-spacing:-.01em;margin-bottom:12px}
+  .hdr-name em{color:var(--gold-lt);font-style:italic}
+  .hdr-role{font-size:.8rem;font-weight:400;color:rgba(255,255,255,.5);letter-spacing:.05em}
+  .hdr-right{display:flex;align-items:flex-end;padding-bottom:2px}
+  .contacts{display:flex;flex-direction:column;gap:7px}
+  .ct{display:flex;align-items:center;gap:9px;font-size:.72rem;color:rgba(255,255,255,.65)}
+  .ct:hover{color:var(--gold-lt)}
+  .ci{display:flex;align-items:center;justify-content:center;width:20px;height:20px;background:rgba(184,149,46,.15);border:1px solid rgba(184,149,46,.3);border-radius:3px;font-size:.6rem;color:var(--gold);flex-shrink:0;font-style:normal}
+
+  /* SUMMARY */
+  .summ{padding:28px 48px 0;margin-bottom:28px}
+  .summ p{font-size:.85rem;line-height:1.8;color:var(--tx);max-width:100%}
+  .summ strong{color:var(--navy-mid);font-weight:600}
+
+  /* SECTION LABEL */
+  .sec{margin-bottom:32px}
+  .sec-label{display:flex;align-items:baseline;gap:9px;margin-bottom:16px;padding-bottom:9px;border-bottom:1px solid var(--border)}
+  .sec-num{font-family:'DM Serif Display',Georgia,serif;font-style:italic;font-size:.75rem;color:var(--gold);flex-shrink:0}
+  .sec-title{font-size:.62rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--navy-mid)}
+
+  /* GRID */
+  .grid{display:grid;grid-template-columns:1fr 290px;padding:0 48px 44px}
+  .col-l{padding-right:40px;border-right:1px solid var(--border)}
+  .col-r{padding-left:36px}
+
+  /* JOB */
+  .job{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+  .job:last-child{border:none;margin-bottom:0;padding-bottom:0}
+  .job-hdr{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:10px}
+  .job-title{font-family:'DM Serif Display',Georgia,serif;font-size:1rem;color:var(--navy);margin-bottom:2px}
+  .job-co{display:block;font-size:.7rem;font-weight:500;color:var(--gold);letter-spacing:.03em}
+  .job-meta{text-align:right;flex-shrink:0}
+  .job-period{display:block;font-size:.68rem;color:var(--txm);font-weight:500;white-space:nowrap}
+  .job-loc{display:block;font-size:.62rem;color:var(--txl);margin-top:1px}
+  .job-ach{display:flex;flex-direction:column;gap:5px;margin-bottom:12px}
+  .job-ach li{font-size:.78rem;line-height:1.6;color:var(--tx);padding-left:13px;position:relative}
+  .job-ach li::before{content:'–';position:absolute;left:0;color:var(--gold);font-weight:700}
+  .job-ach li strong{color:var(--navy);font-weight:600}
+  .tags{display:flex;flex-wrap:wrap;gap:5px}
+  .tag{display:inline-block;font-size:.6rem;font-weight:500;letter-spacing:.04em;padding:2px 8px;border-radius:100px;background:var(--gold-pale);color:#7a5e18;border:1px solid rgba(184,149,46,.3)}
+  .tag-p{background:rgba(15,27,45,.05);color:var(--navy-mid);border:1px solid rgba(15,27,45,.12)}
+
+  /* PROJECTS */
+  .proj-grid{display:grid;gap:10px}
+  .proj-card{background:#fff;border:0.5px solid var(--border-dk);border-radius:8px;padding:14px 16px}
+  .proj-card-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+  .proj-name{font-family:'DM Serif Display',Georgia,serif;font-size:.88rem;color:var(--navy)}
+  .proj-link{display:flex;align-items:center;justify-content:center;width:22px;height:22px;background:var(--navy);color:var(--gold-lt);border-radius:4px;font-size:.75rem;flex-shrink:0}
+  .proj-desc{font-size:.74rem;line-height:1.6;color:var(--txm);margin-bottom:10px}
+
+  /* EDU */
+  .edu{margin-bottom:14px;padding-bottom:14px;border-bottom:1px dashed var(--border)}
+  .edu:last-child{border:none;margin-bottom:0;padding-bottom:0}
+  .edu-deg{font-size:.8rem;font-weight:600;color:var(--navy);margin-bottom:2px;line-height:1.3}
+  .edu-school{display:block;font-size:.7rem;color:var(--gold);font-weight:500;margin-bottom:1px}
+  .edu-period{display:block;font-size:.63rem;color:var(--txl)}
+
+  /* SKILLS */
+  .skill-cat{margin-bottom:12px}
+  .skill-cat:last-child{margin-bottom:0}
+  .skill-cat-label{display:block;font-size:.58rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--txl);margin-bottom:6px}
+  .pills{display:flex;flex-wrap:wrap;gap:4px}
+  .pill{display:inline-block;font-size:.68rem;font-weight:500;padding:3px 9px;border-radius:4px;background:#fff;border:0.5px solid var(--border-dk);color:var(--tx)}
+
+  /* SOFT SKILLS */
+  .softs{display:flex;flex-direction:column;gap:7px}
+  .soft{display:flex;align-items:center;gap:9px;font-size:.76rem;color:var(--tx)}
+  .soft-dot{width:5px;height:5px;background:var(--gold);border-radius:50%;flex-shrink:0}
+
+  /* CERTS */
+  .cert-list{display:flex;flex-direction:column;gap:10px}
+  .cert{padding-left:10px;border-left:2px solid var(--gold)}
+  .cert-name{display:block;font-size:.76rem;font-weight:600;color:var(--navy);margin-bottom:2px}
+  .cert-issuer{display:block;font-size:.66rem;color:var(--txm)}
+
+  /* LANGS */
+  .langs{display:flex;flex-direction:column;gap:10px}
+  .lang-info{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+  .lang-name{font-size:.76rem;font-weight:600;color:var(--navy)}
+  .lang-lvl{font-size:.63rem;color:var(--txm)}
+  .lang-bar{height:3px;background:var(--border);border-radius:100px;overflow:hidden}
+  .lang-fill{height:100%;background:linear-gradient(90deg,var(--gold) 0%,var(--gold-lt) 100%);border-radius:100px}
+
+  /* FOOTER */
+  .ftr{background:var(--navy);color:rgba(255,255,255,.38);font-size:.64rem;padding:12px 48px;display:flex;align-items:center;gap:8px;letter-spacing:.03em;flex-wrap:wrap}
+  .ftr a{color:var(--gold)}
+  .ftr-sep{color:rgba(255,255,255,.18)}
+
+  @media(max-width:640px){
+    .hdr{grid-template-columns:1fr;gap:20px;padding:30px 24px 26px}
+    .hdr-name{font-size:2rem}
+    .summ{padding:20px 24px 0}
+    .grid{grid-template-columns:1fr;padding:0 24px 32px}
+    .col-l{padding-right:0;border-right:none;border-bottom:1px solid var(--border);padding-bottom:28px;margin-bottom:28px}
+    .col-r{padding-left:0}
+    .ftr{padding:12px 24px}
+    .job-hdr{flex-direction:column;gap:2px}
+    .job-meta{text-align:left}
+  }
+</style>
+
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header class="hdr">
+    <div>
+      <div class="hdr-eyebrow">Currículo Profissional</div>
+      <h1 class="hdr-name">Luiz Enrique <em>Silva dos Santos</em></h1>
+    </div>
+    <div class="hdr-right">
+      <ul class="contacts">
+        <li class="ct"><span class="ci">✉</span><a href="mailto:seuemail@email.com">silvasantosenriqueluiz@gmail.com</a></li>
+        <li class="ct"><span class="ci">✆</span><span>+55 (11) 98479-7162</span></li>
+        <li class="ct"><span class="ci">⌖</span><span>São Paulo, SP — Brasil</span></li>
+        <li class="ct"><span class="ci">in</span><a href="#">linkedin.com/in/Luiz Enrique Silva dos Santos</a></li>
+        <li class="ct"><span class="ci">gh</span><a href="#">github.com/LuizEnriqueSilva-Dev</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- RESUMO -->
+  <section class="summ">
+    <div class="sec-label" style="margin-bottom:12px">
+      <span class="sec-num">01</span>
+      <span class="sec-title">Resumo Profissional</span>
+    </div>
+    <p>Profissional em transição para a área de tecnologia, atualmente cursando graduação com foco em construir uma carreira sólida em desenvolvimento, TI ou suporte técnico. Conta com contato próximo com computadores, internet e sistemas desde a infância, o que desenvolveu de forma natural uma base técnica, curiosidade investigativa e facilidade para resolver problemas com recursos digitais.
+      Ao longo da trajetória profissional, acumulou experiências diversas — como animador de eventos e ajudante de pedreiro — que fortaleceram habilidades fundamentais no mercado: comunicação com pessoas, trabalho em equipe sob pressão, responsabilidade com prazos e capacidade de adaptação a ambientes dinâmicos e desafiadores.
+      Busca sua primeira oportunidade formal na área de tecnologia, trazendo uma combinação pouco comum de vivência prática, habilidades interpessoais e afinidade genuína com o universo digital.
+      </p>
+  </section>
+
+  <!-- GRID PRINCIPAL -->
+  <div class="grid">
+
+    <!-- COLUNA ESQUERDA -->
+    <div class="col-l">
+
+      <!-- EXPERIÊNCIAS -->
+      <section class="sec">
+        <div class="sec-label">
+          <span class="sec-num">02</span>
+          <span class="sec-title">Experiências</span>
+        </div>
+
+        <article class="job">
+          <div class="job-hdr">
+            <div>
+              <h3 class="job-title"> Ajudande de pedreiro </h3>
+              <span class="job-co">Nome da Empresa</span>
+            </div>
+            <div class="job-meta">
+              <span class="job-period">Junho 2025 — Setembro 2025</span>
+              <span class="job-loc">São Paulo, SP</span>
+            </div>
+          </div>
+          <ul class="job-ach">
+            <li>Auxiliou na execução de serviços de alvenaria, reboco e acabamento, seguindo orientações do responsável técnico.</li>
+            <li>Demonstrou responsabilidade no manuseio de materiais e ferramentas em ambiente de obra.</li>
+            <li>Desenvolveu disciplina, atenção a detalhes e capacidade de trabalho físico em condições exigentes.</li>
+            <li>Colaborou com a equipe para cumprimento de prazos e padrões de qualidade da construção.</li>
+          </ul>
+
+        <article class="job">
+          <div class="job-hdr">
+            <div>
+              <h3 class="job-title">Animador de Evento</h3>
+              <span class="job-co">Sportz</span>
+            </div>
+            <div class="job-meta">
+              <span class="job-period">Mar 2024 — Abril 2025</span>
+              <span class="job-loc">Cotia, SP</span>
+            </div>
+          </div>
+          <ul class="job-ach">
+            <li>Conduziu dinâmicas, brincadeiras e atividades interativas em eventos infantis e sociais.</li>
+            <li>Desenvolveu forte habilidade de comunicação, improviso e gestão de público em tempo real.</li>
+            <li>Atuou em ambientes de alta energia, mantendo engajamento e satisfação dos participantes.</li>
+            <li>Reforçou competências interpessoais como empatia, liderança leve e controle emocional sob pressão</li>
+          </ul>
+
+      <!-- PROJETOS -->
+      <section class="sec">
+        <div class="sec-label">
+          <span class="sec-num">03</span>
+          <span class="sec-title">Projetos em Destaque</span>
+        </div>
+        <div class="proj-grid">
+          <article class="proj-card">
+            <div class="proj-card-hdr">
+              <h3 class="proj-name"> Site Institucional — Mac Estampas 
+                Projeto Pessoal · [2025]</h3>
+              <a href="#" class="proj-link">↗</a>
+            </div>
+            <p class="proj-desc">Desenvolvi página web completa para apresentação de marca de estampas, incluindo identidade visual e catálogo de produtos.
+              Apliquei conceitos de design, organização de conteúdo e experiência do usuário para atrair o público-alvo da marca.
+              Além de transformar uma necessidade real de negócio em solução digital funcional.</p>
+            <div class="tags"><span class="tag tag-p">HTML</span><span class="tag tag-p">CSS</span><span class="tag tag-p">JavaScript</span></div>
+          </article>
+          <article class="proj-card">
+            <div class="proj-card-hdr">
+              <h3 class="proj-name">Site Fanpage — Bully (PS2)
+                Projeto Pessoal · [2023]</h3>
+              <a href="#" class="proj-link">↗</a>
+            </div>
+            <p class="proj-desc">Criei página web dedicada ao jogo Bully, com informações, conteúdo e curiosidades sobre o título.
+              Usei habilidades de estruturação de conteúdo, pesquisa e desenvolvimento front-end de forma autodidata.
+              Projeto motivado por interesse genuíno, demonstrando iniciativa e capacidade de aprender fazendo.</p>
+            <div class="tags"><span class="tag tag-p">HTML</span><span class="tag tag-p">CSS</span><span class="tag tag-p">JavaScript</span></div>
+          </article>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- COLUNA DIREITA -->
+    <div class="col-r">
+
+      <!-- FORMAÇÃO -->
+      <section class="sec">
+        <div class="sec-label">
+          <span class="sec-num">04</span>
+          <span class="sec-title">Formação</span>
+        </div>
+        <article class="edu">
+          <h3 class="edu-deg">Tecnólogo em Análise e Desenvolvimento de Sistemas - (Cursando 2º semestre)</h3>
+          <span class="edu-school">Universidade Cidade de São Paulo</span>
+          <span class="edu-period">2025 — 2026</span>
+        </article>
+        <article class="edu">
+          <h3 class="edu-deg">Ensino Médio Completo</h3>
+          <span class="edu-school">Escola Estadual João XXIII</span>
+          <span class="edu-period">2021 — 2024</span>
+        </article>
+      </section>
+
+      <!-- HARD SKILLS -->
+      <section class="sec">
+        <div class="sec-label">
+          <span class="sec-num">05</span>
+          <span class="sec-title">Hard Skills</span>
+        </div>
+        <div class="skill-cat">
+          <span class="skill-cat-label">Linguagens</span>
+          <div class="pills"><span class="pill">JavaScript</span><span class="pill">HTML</span><span class="pill">Python</span><span class="pill">Java</span><span class="pill">CSS</span</div>
+        </div>
+        <div class="skill-cat">
+          <span class="skill-cat-label">Conceitos & Fundamentos</span>
+          <div class="pills"><span class="pill">Estrutura de Dados</span><span class="pill">Lógica de Programação</span><span class="pill">Orientação a Objetos</span></div>
+        </div>
+        <div class="skill-cat">
+          <span class="skill-cat-label">Ferramentas & Web</span>
+          <div class="pills"><span class="pill">Git</span><span class="pill">GitHub</span><span class="pill">Navegadores & DevTools</span><span class="pill">Criação de Sites</span></div>
+        </div>
+        <div class="skill-cat">
+          <span class="skill-cat-label">Sistemas & Tecnologia</span>
+          <div class="pills"><span class="pill">Windows</span><span class="pill">Pacote Office</span><span class="pill">Redes básicas</span><span class="pill">Internet & Protocolos</span></div>
+      </section>
+
+      <!-- SOFT SKILLS -->
+      <section class="sec">
+        <div class="sec-label">
+          <span class="sec-num">06</span>
+          <span class="sec-title">Soft Skills</span>
+        </div>
+        <div class="softs">
+          <div class="soft"><span class="soft-dot"></span><span>Comunicação interpessoal</span></div>
+          <div class="soft"><span class="soft-dot"></span><span>Trabalho em equipe</span></div>
+          <div class="soft"><span class="soft-dot"></span><span>Resolução de problemas</span></div>
+          <div class="soft"><span class="soft-dot"></span><span>Organização e disciplina</span></div>
+          <div class="soft"><span class="soft-dot"></span><span>Aprendizado contínuo</span></div>
+          <div class="soft"><span class="soft-dot"></span><span>Atenção aos detalhes</span></div>
+        </div>
+      </section>
+
+      <!-- IDIOMAS -->
+      <section class="sec" style="margin-bottom:0">
+        <div class="sec-label">
+          <span class="sec-num">07</span>
+          <span class="sec-title">Idiomas</span>
+        </div>
+        <div class="langs">
+          <div>
+            <div class="lang-info"><span class="lang-name">Português</span><span class="lang-lvl">Nativo</span></div>
+            <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+          </div>
+          <div>
+            <div class="lang-info"><span class="lang-name">Inglês</span><span class="lang-lvl">Fluente</span></div>
+            <div class="lang-bar"><div class="lang-fill" style="width:85%"></div></div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="ftr">
+    <span>Atualizado em Abril de 2026</span>
+    <span class="ftr-sep">·</span>
+    <span>Autorizo o uso deste currículo para fins de recrutamento e seleção.</span>
+  </footer>
+
+</div>
