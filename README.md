@@ -1,7 +1,7 @@
 # portifolio-Luiz-Enrique-Silva
 
-# [Luiz Enrique Silva dos Santos]
-> Estudante de [Análise e Desenvlvimento de Sistemas]
+# Luiz Enrique Silva dos Santos
+> Estudante de Análise e Desenvlvimento de Sistemas
  
 ---
  
