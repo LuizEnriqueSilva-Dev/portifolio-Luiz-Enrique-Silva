@@ -60,7 +60,7 @@ Busco minha **primeira oportunidade em tecnologia**, unindo **vivência prática
 | :--- | :--- | :---: |
 | **Sistema de Gestão Escolar** | Modelagem ER e Scripts SQL para uma instituição de ensino. | [Ver Projeto](./Projeto-Engenharia-Reversa/)
 **Sistema de Gestão Escolar** | Modelagem ER e Scripts SQL para uma instituição de ensino. | [Ver Projeto](./Projeto-Laboratório-de-Classificação-Visual/)|
-**Sistema de Gestão Escolar** | Modelagem ER e Scripts SQL para uma instituição de ensino. | [Ver Projeto](./Projeto-NovForms-Main/)
+**Sistema de Gestão Escolar** | Modelagem ER e Scripts SQL para uma instituição de ensino. | [Ver Projeto](./Projeto-NovForms-main/)
  
 #### 🤖 Inteligência Artificial
 | Projeto | Descrição | Link |
