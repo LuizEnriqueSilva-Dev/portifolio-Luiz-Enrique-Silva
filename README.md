@@ -58,7 +58,9 @@ Busco minha **primeira oportunidade em tecnologia**, unindo **vivência prática
 #### 🗃️ Modelagem de Banco de Dados
 | Projeto | Descrição | Link |
 | :--- | :--- | :---: |
-| **Sistema de Gestão Escolar** | Modelagem ER e Scripts SQL para uma instituição de ensino. | [Ver Projeto](./projeto-banco-dados/) |
+| **Sistema de Gestão Escolar** | Modelagem ER e Scripts SQL para uma instituição de ensino. | [Ver Projeto](./Projeto-Engenharia-Reversa/)
+**Sistema de Gestão Escolar** | Modelagem ER e Scripts SQL para uma instituição de ensino. | [Ver Projeto](./Projeto-Laboratório-de-Classificação-Visual/)|
+**Sistema de Gestão Escolar** | Modelagem ER e Scripts SQL para uma instituição de ensino. | [Ver Projeto](./Projeto-NovForms-Main/)
  
 #### 🤖 Inteligência Artificial
 | Projeto | Descrição | Link |
