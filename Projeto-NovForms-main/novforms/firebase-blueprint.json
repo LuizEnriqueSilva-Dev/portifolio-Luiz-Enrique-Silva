@@ -1,0 +1,72 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "Unique user ID" },
+        "email": { "type": "string", "format": "email", "description": "User's email address" },
+        "displayName": { "type": "string", "description": "User's display name" },
+        "photoURL": { "type": "string", "format": "uri", "description": "User's profile picture URL" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Account creation timestamp" }
+      },
+      "required": ["uid", "email", "createdAt"]
+    },
+    "Form": {
+      "title": "Form",
+      "description": "Form definition created by a user",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique form ID" },
+        "ownerId": { "type": "string", "description": "UID of the form owner" },
+        "title": { "type": "string", "description": "Form title" },
+        "description": { "type": "string", "description": "Form description" },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "label": { "type": "string" },
+              "type": { "type": "string", "enum": ["text", "textarea", "number", "email", "select", "checkbox", "radio"] },
+              "required": { "type": "boolean" },
+              "options": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "isPublished": { "type": "boolean" }
+      },
+      "required": ["ownerId", "title", "fields", "createdAt"]
+    },
+    "Submission": {
+      "title": "Submission",
+      "description": "Form submission data",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "formId": { "type": "string" },
+        "data": { "type": "object", "description": "Key-value pairs of form field IDs and values" },
+        "submittedAt": { "type": "string", "format": "date-time" },
+        "submittedBy": { "type": "string", "description": "UID of the submitter (optional)" }
+      },
+      "required": ["formId", "data", "submittedAt"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "User profiles"
+    },
+    "forms/{formId}": {
+      "schema": "Form",
+      "description": "Form definitions"
+    },
+    "forms/{formId}/submissions/{submissionId}": {
+      "schema": "Submission",
+      "description": "Submissions for a specific form"
+    }
+  }
+}

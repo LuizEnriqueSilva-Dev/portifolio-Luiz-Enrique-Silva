@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-blue: #0F62FE;
+  --color-brand-pink: #FF3E6C;
+  --color-brand-dark: #1A1A1A;
+  --color-bg-light: #F8F9FA;
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-white dark:bg-zinc-950 text-gray-900 dark:text-zinc-100 font-sans antialiased transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand-pink text-white px-6 py-3 rounded-2xl font-bold transition-all hover:opacity-90 active:scale-95 shadow-lg shadow-pink-200 dark:shadow-none;
+  }
+  
+  .control-icon {
+    @apply p-2.5 text-gray-500 dark:text-zinc-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-zinc-800 rounded-xl transition-colors cursor-pointer;
+  }
+
+  .card {
+    @apply bg-white dark:bg-zinc-900 border border-gray-100 dark:border-zinc-800 rounded-3xl shadow-sm;
+  }
+
+  .input-field {
+    @apply px-4 py-3 rounded-xl border border-gray-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-brand-pink/20 dark:focus:ring-brand-pink/40 transition-all dark:text-white;
+  }
+}
+
+/* Custom scrollbar for dark mode */
+.dark ::-webkit-scrollbar {
+  width: 8px;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #09090b;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+

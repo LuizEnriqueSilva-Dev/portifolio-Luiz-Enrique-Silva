@@ -1,0 +1,133 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // ===============================================================
+    // Assumed Data Model
+    // ===============================================================
+    //
+    // Collection: users
+    // Document ID: userId (UID)
+    // Fields:
+    //   - uid: string (required) - Unique user ID
+    //   - email: string (required, email format) - User's email address
+    //   - displayName: string (optional) - User's display name
+    //   - photoURL: string (optional, uri format) - User's profile picture URL
+    //   - createdAt: timestamp (required) - Account creation timestamp
+    //
+    // Collection: forms
+    // Document ID: formId
+    // Fields:
+    //   - id: string (required) - Unique form ID
+    //   - ownerId: string (required) - UID of the form owner
+    //   - title: string (required) - Form title
+    //   - description: string (optional) - Form description
+    //   - fields: list (required) - List of form field objects
+    //   - createdAt: timestamp (required) - Creation timestamp
+    //   - updatedAt: timestamp (optional) - Update timestamp
+    //   - isPublished: bool (optional) - Whether the form is published
+    //
+    // Collection: forms/{formId}/submissions
+    // Document ID: submissionId
+    // Fields:
+    //   - id: string (required) - Unique submission ID
+    //   - formId: string (required) - Form ID
+    //   - data: map (required) - Form submission data
+    //   - submittedAt: timestamp (required) - Submission timestamp
+    //   - submittedBy: string (optional) - UID of the submitter
+    //
+    // ===============================================================
+
+    // ===============================================================
+    // Helper Functions
+    // ===============================================================
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function isDocOwner() {
+      return isAuthenticated() && request.auth.uid == resource.data.ownerId;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() &&
+        (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin' ||
+          (request.auth.token.email == "luizenriquesilva47@gmail.com" && request.auth.token.email_verified == true));
+    }
+
+    function isValidEmail(email) {
+      return email is string && email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$");
+    }
+
+    function isValidUrl(url) {
+      return url is string && (url.matches("^https://.*") || url.matches("^http://.*"));
+    }
+
+    // ===============================================================
+    // Domain Validators
+    // ===============================================================
+
+    function isValidUser(data) {
+      return data.keys().hasAll(['uid', 'email', 'createdAt']) &&
+             data.uid == request.auth.uid &&
+             isValidEmail(data.email) &&
+             data.createdAt is timestamp &&
+             (!('displayName' in data) || (data.displayName is string && data.displayName.size() < 100)) &&
+             (!('photoURL' in data) || isValidUrl(data.photoURL));
+    }
+
+    function isValidForm(data) {
+      return data.keys().hasAll(['ownerId', 'title', 'fields', 'createdAt']) &&
+             data.ownerId == request.auth.uid &&
+             data.title is string && data.title.size() > 0 && data.title.size() < 200 &&
+             data.fields is list && data.fields.size() < 100 &&
+             data.createdAt is timestamp &&
+             (!('description' in data) || (data.description is string && data.description.size() < 1000)) &&
+             (!('isPublished' in data) || data.isPublished is bool);
+    }
+
+    function isValidSubmission(data, formId) {
+      return data.keys().hasAll(['formId', 'data', 'submittedAt']) &&
+             data.formId == formId &&
+             data.data is map &&
+             data.submittedAt is timestamp &&
+             (!('submittedBy' in data) || data.submittedBy == request.auth.uid);
+    }
+
+    // ===============================================================
+    // Rules
+    // ===============================================================
+
+    match /users/{userId} {
+      allow read: if isOwner(userId) || isAdmin();
+      allow create: if isOwner(userId) && isValidUser(request.resource.data);
+      allow update: if (isOwner(userId) || isAdmin()) && isValidUser(request.resource.data) && 
+                      request.resource.data.uid == resource.data.uid &&
+                      request.resource.data.createdAt == resource.data.createdAt;
+    }
+
+    match /forms/{formId} {
+      // Anyone can read a published form to submit it
+      allow read: if resource.data.isPublished == true || isDocOwner() || isAdmin();
+      allow create: if isAuthenticated() && isValidForm(request.resource.data);
+      allow update: if (isDocOwner() || isAdmin()) && isValidForm(request.resource.data) &&
+                      request.resource.data.ownerId == resource.data.ownerId &&
+                      request.resource.data.createdAt == resource.data.createdAt;
+      allow delete: if isDocOwner() || isAdmin();
+
+      match /submissions/{submissionId} {
+        // Only form owner can read submissions
+        allow read: if get(/databases/$(database)/documents/forms/$(formId)).data.ownerId == request.auth.uid || isAdmin();
+        // Anyone can submit if the form is published
+        allow create: if get(/databases/$(database)/documents/forms/$(formId)).data.isPublished == true && 
+                        isValidSubmission(request.resource.data, formId);
+        // Submissions are immutable
+        allow update, delete: if false;
+      }
+    }
+  }
+}
