@@ -13,11 +13,22 @@
 ---
  
 ### 👨‍💻 Sobre
-Atualmente cursando o [2º] período de [Análise e Desenvolvimento de Sistemas] na [Universidade Cidade de São Paulo]. Sou apaixonado por resolver problemas através da tecnologia e possuo foco em [Desenvolvimento Backend/Frontend / Programador em Python].
+Atualmente cursando o **2º** período de **Análise e Desenvolvimento de Sistemas** na **Universidade Cidade de São Paulo**. Sou apaixonado por resolver problemas através da tecnologia e possuo foco em **Desenvolvimento Backend/Frontend / Programador em Python**.
  
-* **Habilidades Técnicas:** [Ex: Python, Java, SQL, AWS, Docker].
-* **Habilidades Socioemocionais:** Trabalho em equipe, comunicação assertiva e pensamento crítico.
-* **Experiência/Projetos Relevantes:** Atuei em [Projeto de Iniciação Científica/Estágio] onde desenvolvi [resultado principal].
+* **Habilidades Técnicas:** Python, JavaScript, CSS, HTML, MySQL].
+* **Habilidades Socioemocionais:** Comunicação interpessoal, Trabalho em equipe, Resolução de problemas, Organização e disciplina, Aprendizado contínuo, Atenção aos detalhes
+* **Experiência/Projetos Relevantes:** Profissional em **transição para a área de Tecnologia**, atualmente em graduação e focado em construir uma carreira sólida em **Desenvolvimento, TI e Suporte Técnico**.
+
+Desde cedo tenho contato com **computadores, internet e sistemas**, desenvolvendo naturalmente perfil analítico, curiosidade técnica e facilidade para **resolver problemas**.
+
+💡 Experiências em áreas diversas fortaleceram competências como:
+
+- **Comunicação e trabalho em equipe**
+- **Adaptabilidade em ambientes dinâmicos**
+- **Responsabilidade com prazos**
+- **Resolução prática de problemas sob pressão**
+
+Busco minha **primeira oportunidade em tecnologia**, unindo **vivência prática, habilidades interpessoais** e uma forte conexão com o universo digital..
  
 ---
  
