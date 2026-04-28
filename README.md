@@ -66,6 +66,9 @@ Busco minha **primeira oportunidade em tecnologia**, unindo **vivência prática
 | Projeto | Descrição | Link |
 | :--- | :--- | :---: |
 | **Predição de Churn** | Algoritmo de classificação para prever saída de clientes. | [Ver Projeto](./projeto-ia-churn/) |
+| **Sistema de Gestão Escolar** | Modelagem ER e Scripts SQL para uma instituição de ensino. | [Ver Projeto](./Projeto-Engenharia-Reversa/)
+**Sistema de Gestão Escolar** | Modelagem ER e Scripts SQL para uma instituição de ensino. | [Ver Projeto](./Projeto-Laboratório-de-Classificação-Visual/)|
+**Sistema de Gestão Escolar** | Modelagem ER e Scripts SQL para uma instituição de ensino. | [Ver Projeto](./Projeto-NovForms-main/)
  
 ---
  
