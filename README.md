@@ -58,17 +58,13 @@ Busco minha **primeira oportunidade em tecnologia**, unindo **vivência prática
 #### 🗃️ Modelagem de Banco de Dados
 | Projeto | Descrição | Link |
 | :--- | :--- | :---: |
-| **Sistema de Gestão Escolar** | Modelagem ER e Scripts SQL para uma instituição de ensino. | [Ver Projeto](./Projeto-Engenharia-Reversa/)
-**Sistema de Gestão Escolar** | Modelagem ER e Scripts SQL para uma instituição de ensino. | [Ver Projeto](./Projeto-Laboratório-de-Classificação-Visual/)|
-**Sistema de Gestão Escolar** | Modelagem ER e Scripts SQL para uma instituição de ensino. | [Ver Projeto](./Projeto-NovForms-main/)
  
 #### 🤖 Inteligência Artificial
 | Projeto | Descrição | Link |
 | :--- | :--- | :---: |
-| **Predição de Churn** | Algoritmo de classificação para prever saída de clientes. | [Ver Projeto](./projeto-ia-churn/) |
-| **Engenharia Reversa** | Modelagem ER e Scripts SQL para uma instituição de ensino. | [Ver Projeto](./Projeto-Engenharia-Reversa/)
-**Sistema de Classificação Visual** | Modelagem ER e Scripts SQL para uma instituição de ensino. | [Ver Projeto](./Projeto-Laboratório-de-Classificação-Visual/)|
-**Site Nov Forms** | Modelagem ER e Scripts SQL para uma instituição de ensino. | [Ver Projeto](./Projeto-NovForms-main/)
+| **Engenharia Reversa** | Desenvolvimento assistido por IA, competências emergentes e os limites éticos da engenharia reversa, destacando pensamento crítico, adaptação tecnológica e originalidade na criação de software. | [Ver Projeto](./Projeto-Engenharia-Reversa/)
+**Sistema de Classificação Visual** | Aplicação voltada para organização e categorização visual de informações, com foco em usabilidade, interface intuitiva e experiência do usuário. | [Ver Projeto](./Projeto-Laboratório-de-Classificação-Visual/)|
+**Site Nov Forms** | Desenvolvimento de uma interface web moderna para formass digitais, priorizando design responsivo, acessibilidade e interação eficiente entre usuário e sistema. | [Ver Projeto](./Projeto-NovForms-main/)
  
 ---
  
