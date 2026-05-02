@@ -1,4 +1,4 @@
-# portifolio-Luiz-Enrique-Silva
+# portfolio-Luiz-Enrique-Silva
 
 # Luiz Enrique Silva dos Santos
 > Estudante de Análise e Desenvlvimento de Sistemas
