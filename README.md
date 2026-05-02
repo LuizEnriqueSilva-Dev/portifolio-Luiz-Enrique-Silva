@@ -58,6 +58,7 @@ Busco minha **primeira oportunidade em tecnologia**, unindo **vivência prática
 #### 🗃️ Modelagem de Banco de Dados
 | Projeto | Descrição | Link |
 | :--- | :--- | :---: |
+| **Aplicação de Conceitos Fundamentais** |Projeto focado na aplicação de conceitos essenciais de modelagem de dados, abordando a transformação de dados em informação e a distinção entre dados estruturados e não estruturados em um cenário prático. | [Ver Projeto](./Projeto-Engenharia-Reversa/)
  
 #### 🤖 Inteligência Artificial
 | Projeto | Descrição | Link |
